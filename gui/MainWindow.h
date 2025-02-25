@@ -14,12 +14,12 @@ public:
 private slots:
     void openImage();
     void clearMetadata();
-    void saveMetadata();  // Nouvelle fonction pour enregistrer les changements
+    void saveMetadata();
 
 private:
     QTableWidget *metadataTable;
-    QPushButton *saveButton;  // Bouton pour sauvegarder
-    QString currentFilePath;  // Stocker le fichier en cours d'édition
+    QPushButton *saveButton; 
+    QString currentFilePath;
 };
 
 #endif
