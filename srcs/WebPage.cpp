@@ -86,3 +86,24 @@ std::vector<std::string> WebPage::getImages() const
 {
     return _images;
 }
+
+void WebPage::downloadAllImages(const std::string &downloadPath) {
+    // S'assure que le dossier existe
+    std::filesystem::create_directories(downloadPath);
+
+    for (auto &imgUrl : _images) {
+        // Vérifier si extension OK
+        std::string filename = extractFileName(imgUrl);
+        if (!hasValidExtension(filename)) {
+            continue; // On ignore
+        }
+        // Construire chemin local
+        std::string localPath = downloadPath + "/" + filename;
+        bool ok = downloadImage(imgUrl, localPath);
+        if (!ok) {
+            std::cerr << "Echec du téléchargement: " << imgUrl << std::endl;
+        } else {
+            std::cout << "Image téléchargée: " << localPath << std::endl;
+        }
+    }
+}
