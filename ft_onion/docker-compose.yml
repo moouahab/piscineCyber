@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  ft_onion:
+    build: .
+    container_name: ft_onion
+    ports:
+      - "8080:80"
+      - "4242:4242"
+    volumes:
+      - ./ssh/sshd_config:/etc/ssh/sshd_config
+      - ./ssh/authorized_keys:/home/onion/.ssh/authorized_keys
+      - ./fail2ban/jail.local:/etc/fail2ban/jail.local
+      - ./nginx/index.html:/var/www/html/index.html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./tor/torrc:/etc/tor/torrc
+    command: >
+      bash -c "service rsyslog start &&
+              service ssh start &&
+              service fail2ban start &&
+              service tor start &&
+              nginx -g 'daemon off;'"
+

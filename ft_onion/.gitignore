@@ -1,0 +1,40 @@
+# === Clés privées et .onion sensibles ===
+*.key
+*.pem
+*.crt
+*.pub
+*.tor
+/private_key
+/hostname
+/hs_ed25519_*
+
+# === Dossiers Tor ===
+tor_data/
+var/lib/tor/hidden_service/
+mon_hidden_service/
+
+# === Fichiers système inutiles ===
+*.log
+*.swp
+*.swo
+*.tmp
+*.bak
+.DS_Store
+
+# === Dossiers de logs Fail2Ban (au cas où) ===
+/var/log/
+/var/run/
+
+# === Docker files générés ===
+*.pid
+*.sock
+
+# === Fichiers de test / debug ===
+*.out
+*.test
+*.old
+*.tar
+*.tar.gz
+*.zip
+*.7z
+*.bin
