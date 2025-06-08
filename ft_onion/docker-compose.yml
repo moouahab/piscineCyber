@@ -20,6 +20,6 @@ services:
               service fail2ban start &&
               service tor start &&
               nginx &&
-              tail -F /var/log/auth.log /var/log/fail2ban.log /var/log/tor/log"
+              tail -F /var/log/auth.log /var/log/fail2ban.log /var/log/tor/log > /dev/null 2>&1"
     cap_add:
       - NET_ADMIN
