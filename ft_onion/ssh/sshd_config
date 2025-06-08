@@ -5,3 +5,4 @@ PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
 ChallengeResponseAuthentication no
 UsePAM no
+LogLevel VERBOSE

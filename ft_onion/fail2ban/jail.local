@@ -6,3 +6,6 @@ backend = auto
 maxretry = 3
 findtime = 10m
 bantime = 1h
+filter = sshd[mode=aggressive]
+
+action = iptables-allports[name=SSH, port=4242, protocol=tcp]

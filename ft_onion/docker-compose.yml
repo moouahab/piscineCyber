@@ -19,5 +19,7 @@ services:
               service ssh start &&
               service fail2ban start &&
               service tor start &&
-              nginx -g 'daemon off;'"
-
+              nginx &&
+              tail -F /var/log/auth.log /var/log/fail2ban.log /var/log/tor/log"
+    cap_add:
+      - NET_ADMIN

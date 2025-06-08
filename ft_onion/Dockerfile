@@ -9,6 +9,7 @@ RUN apt update && apt install -y \
     openssh-server \
     curl \
     torsocks \
+    iptables \
     && rm -rf /var/lib/apt/lists/*
 
     
@@ -25,6 +26,8 @@ RUN useradd -m -s /bin/bash onion && \
 RUN mkdir -p /var/lib/tor/hidden_service && \
     chown -R debian-tor:debian-tor /var/lib/tor/hidden_service && \
     chmod 700 /var/lib/tor/hidden_service
+
+RUN echo "auth,authpriv.* /var/log/auth.log" > /etc/rsyslog.d/50-default.conf
 
 # Activer le service de logs
 RUN systemctl enable rsyslog
