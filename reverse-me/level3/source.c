@@ -29,6 +29,7 @@ int main() {
         j += 3;
         i++;
     }
+    
     if (strcmp(reconstructed, "********") == 0) {
         puts("Good job.");
     } else {

@@ -11,14 +11,14 @@ void no() {
 }
 
 int main() {
-    char input[64];    // Buffer pour scanf
-    char key[10];      // Buffer reconstruit (caractères convertis)
-    int i = 2;         // On commence à lire après les deux premiers caractères
-    int j = 1;         // L'index du buffer `key`
+    char input[64];
+    char key[10];
+    int i = 2;
+    int j = 1;
     int scanf_result;
 
     printf("Please enter key: ");
-    scanf_result = scanf("%s", input);   // prend la chaîne entrée
+    scanf_result = scanf("%s", input);
 
     if (scanf_result != 1)
         no();
@@ -28,7 +28,7 @@ int main() {
 
     fflush(stdout);  // s'assure que tout est affiché
 
-    memset(key, 0, 9);  // remet key à 0
+    memset(key, 0, 9);
     key[0] = 'd';       // le premier caractère est fixé à 'd'
     key[1] = '\0';
 
@@ -47,8 +47,7 @@ int main() {
         j++;
         i += 3;
     }
-    key[j] = '\0';  // fin de chaîne
-    // comparaison avec mot de passe attendu (dans le .rodata)
+    key[j] = '\0';
     if (strcmp(key, "delaber") == 0)
         ok();
     else
