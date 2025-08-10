@@ -14,8 +14,10 @@ int main() {
 
     printf("Please enter key: ");
     scanf("%s", input);
+
     if (input[0] != '4') __system__malloc();
     if (input[1] != '2') __system__malloc();
+    
     fflush(stdout);
     memset(reconstructed, 0, 9);
     reconstructed[0] = '*';
